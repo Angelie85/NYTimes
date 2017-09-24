@@ -1,0 +1,119 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 50px;
+  padding: 10px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+.navBar {
+  border: 1px solid rgb(206, 206, 206);
+  text-align: left;
+  padding:3px 3px 0 3px;
+  box-shadow: rgb(239, 239, 239) 3px 2px 2px;
+  display:flex;
+  height:30px;
+}
+
+.navBlock{
+  flex:1;
+  text-align: center;
+  padding: 5px 20px;
+  cursor:pointer;
+}
+
+.navBlockSelected{
+  border-bottom: 3px solid #216ee0
+}
+
+.searchBar {
+  height:0
+}
+
+.blockCls{
+  border:1px solid #cecece;
+  box-shadow: 3px 2px 2px #efefef;
+  padding: 10px 20px;
+  margin: 20px;
+  display: flex;
+  cursor: pointer;
+}
+
+.blockCls:hover{
+  background-color: #efefef;
+}
+
+a{
+  text-decoration: none;
+  color:#000000;
+}
+.footerImageCls {
+  cursor: pointer;
+  padding: 80px 0 50px 0
+}
+
+.sourceCls{
+  color: #666666;
+  text-transform: capitalize;
+}
+
+.fullArticleTitle{
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.headlineCls{
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.pageCls{
+  flex:1;
+  cursor:pointer;
+  text-decoration: underline;
+}
+.pageCls:hover{
+  color:#42bff4;
+}
+
+.pageDisableCls{
+  color:#666666;
+  cursor:auto;
+  padding-right:15px
+}
+
+.dateCls{
+  color: #42bff4;
+}
+
+.navLinkCls{
+  flex: 1 1;
+  text-align: center;
+  cursor: pointer;
+
+  padding: 5px 20px;
+}
+
+.fullArticleCls{
+  text-align: left;
+  padding:50px;
+  display:flex;
+}
