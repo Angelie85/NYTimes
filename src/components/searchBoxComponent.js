@@ -8,7 +8,7 @@ class searchBoxComponent extends Component {
     this.props.setSearchKeyword(e.target.elements[0].value);
     this.props.fetchSearchResult(e.target.elements[0].value, this.props.page ? this.props.page : 0);
     //route back to home where show the result of search
-    this.props.history.push('/home')
+    this.props.history.push('/')
   }
 
   render () {

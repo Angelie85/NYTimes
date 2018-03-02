@@ -10,7 +10,7 @@ class navBarComponent extends Component {
   render() {
     return (
       <div className="navBar">
-        <NavLink to="/home" className="navLinkCls navBlockSelected" onClick={this.onNavBarClick()}>
+        <NavLink to="/" className="navLinkCls navBlockSelected" onClick={this.onNavBarClick()}>
           <div >Home</div>
         </NavLink>
         <div className="navBlock">World</div>
