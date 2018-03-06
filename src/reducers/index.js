@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
-import { FETCH_TOP_STORIES, FETCH_SEARCH_RESULT, SET_PAGE_COUNT, SET_SEARCH_KEYWORD, SELECT_NEWS} from './../actions'
+import * as actions from './../actions'
 
 const init_state = {
   newsList: [],
   page: 0,
   searchKeyword: '',
-  newsDetail:{}
-
+  newsDetail:{},
+  error:{}
 }
 
 const getPageNumber =(totalSearchResult)=>{
@@ -17,15 +17,30 @@ const getPageNumber =(totalSearchResult)=>{
 
 const NYTimes = (state = init_state, action) => {
   switch (action.type) {
-    case FETCH_SEARCH_RESULT:
-      return Object.assign({}, state, {newsList: action.payload? action.payload.data:[], totalPage : getPageNumber(action.payload?action.payload.data.response.meta.hits:1)});
-    case FETCH_TOP_STORIES:
-      return Object.assign({}, state, {topList: action.payload? action.payload.data: {}});
-    case SET_PAGE_COUNT:
+    case actions.FETCH_SEARCH_RESULT_SUCCESS:
+      return {
+        ...state,
+        newsList: action.response? action.response.data:[],
+        totalPage: getPageNumber(action.response?action.response.data.response.meta.hits:1)
+      }
+    case actions.FETCH_SEARCH_RESULT_FAIL:
+      return{
+        ...state,
+        error: action.response
+      }
+    case actions.FETCH_TOP_STORIES_SUCCESS:
+      return {
+        ...state,
+        topList:action.response?action.response.data:{}}
+    case actions.FETCH_TOP_STORIES_FAIL:
+      return {
+        ...state,
+        error:action.response}
+    case actions.SET_PAGE_COUNT:
       return Object.assign({}, state, {page: action.payload});
-    case SET_SEARCH_KEYWORD:
+    case actions.SET_SEARCH_KEYWORD:
       return Object.assign({}, state, {searchKeyword: action.payload});
-    case SELECT_NEWS:
+    case actions.SELECT_NEWS:
       return Object.assign({}, state, {newsDetail: action.payload, newsType:action.newsType});
     default:
       return state
