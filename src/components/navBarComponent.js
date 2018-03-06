@@ -10,11 +10,18 @@ class navBarComponent extends Component {
   render() {
     return (
       <div className="navBar">
-        <NavLink to="/" className="navLinkCls navBlockSelected" onClick={this.onNavBarClick()}>
-          <div >Home</div>
+        <NavLink to="/"
+                 className={window.location.pathname.length===1?"navLinkCls navBlockSelected" :"navBlock" } onClick={this.onNavBarClick()}>
+          <div>Home</div>
         </NavLink>
-        <div className="navBlock">World</div>
-        <div className="navBlock">U.S</div>
+        <NavLink to ="/world"
+                 className={window.location.pathname.indexOf('world')!==-1?" navBlockSelected navLinkCls" :"navBlock"}onClick={this.onNavBarClick()}>
+          <div>World</div>
+        </NavLink>
+        <NavLink to ="/us"
+                 className={window.location.pathname.indexOf('us')!==-1?" navBlockSelected navLinkCls" :"navBlock"}onClick={this.onNavBarClick()}>
+          <div>U.S</div>
+        </NavLink>
         <div className="navBlock">Politics</div>
         <div className="navBlock">N.Y</div>
         <div className="navBlock">More</div>

@@ -3,6 +3,9 @@ import * as actions from './../actions'
 
 const init_state = {
   newsList: [],
+  worldList:[],
+  topList:[],
+  usList:[],
   page: 0,
   searchKeyword: '',
   newsDetail:{},
@@ -24,18 +27,19 @@ const NYTimes = (state = init_state, action) => {
         totalPage: getPageNumber(action.response?action.response.data.response.meta.hits:1)
       }
     case actions.FETCH_SEARCH_RESULT_FAIL:
-      return{
-        ...state,
-        error: action.response
-      }
+      return{...state,error: action.response }
     case actions.FETCH_TOP_STORIES_SUCCESS:
-      return {
-        ...state,
-        topList:action.response?action.response.data:{}}
+      return {...state,topList:action.response?action.response.data:{}}
     case actions.FETCH_TOP_STORIES_FAIL:
-      return {
-        ...state,
-        error:action.response}
+      return {...state,error:action.response}
+    case actions.FETCH_WORLD_SUCCESS:
+    return{...state, worldList:action.response?action.response.data:{}}
+    case actions.FETCH_WORLD_FAIL:
+      return {...state, error:action.response}
+    case actions.FETCH_NATIONAL_SUCCESS:
+      return{...state, usList:action.response?action.response.data:{}}
+    case actions.FETCH_NATIONAL_FAIL:
+      return{...state, error:action.response}
     case actions.SET_PAGE_COUNT:
       return Object.assign({}, state, {page: action.payload});
     case actions.SET_SEARCH_KEYWORD:

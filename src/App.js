@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import './App.css'
 import Home from './containers/homeContainer'
 import Article from './containers/articleContainer'
-// import header from './components/header'
-// import { Route, IndexRoute, Router } from 'react-router';
+import World from './containers/worldContainer'
+import National from './containers/usContainer'
 import {BrowserRouter, Route} from 'react-router-dom'
 
 class App extends Component {
@@ -17,7 +17,9 @@ class App extends Component {
         <BrowserRouter>
            <div>
              <Route path='/' exact component={Home} />
-            <Route path='/article' component={Article} />
+             <Route path='/article' component={Article} />
+             <Route path='/world' component={World} />
+             <Route path='/us' component={National} />
           </div>
         </BrowserRouter>
 
